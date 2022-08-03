@@ -1,9 +1,10 @@
 <?php
-//ession_start();
+//session_start();
 require_once('config.php');
 
 /**
- * Autoload que carregará automaticamente as classes.
+ * Sempre que uma classe for instanciada o 
+ * Autoload que buscará e carregará automaticamente a classe.
  */
 spl_autoload_register(function($class) {
     if(file_exists('controllers/' . $class . '.php')) {

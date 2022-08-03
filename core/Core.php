@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Classe de ponto de partida da aplicação. 
+ */
 class Core
 {
     /**
@@ -9,7 +12,7 @@ class Core
     public function run()
     {
         $url = '/' . (isset($_GET['url']) ? $_GET['url'] : '');
-
+        $params = [];
         if (!empty($url) && $url != '/') {
             $url = explode('/', $url);
             array_shift($url);
@@ -23,13 +26,19 @@ class Core
             } else {
                 $currentAction = 'index';
             }
+            if(count($url) > 0){
+                $params = $url;
+            }
         } else {
             $currentController = 'homeController';
             $currentAction = 'index';
         }
-
-        echo 'Controller: ' . $currentController;
-        echo '<br>';
-        echo 'Action: ' . $currentAction;
+        
+        // Instanciamos o controller
+        $controller = new $currentController();
+        
+        // Chamamos a action do controller
+        call_user_func_array(array($controller, $currentAction), $params);
+                
     }
 }

@@ -5,8 +5,8 @@
 
   // Verificamos o ambiente atual. 
   if(ENVIROMENT == 'development') {
-        define("BASE_URL", "http://localhost/curso_php_bonieky/MVC_Classificados_PHP/");
-        $config['dbname'] = 'classificados';
+        define("BASE_URL", "http://localhost/MVC/");
+        $config['dbname'] = 'estrutura_mvc';
         $config['dbhost'] = 'localhost';
         $config['dbuser'] = 'root';
         $config['dbpass'] = '';
