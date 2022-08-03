@@ -5,8 +5,8 @@
 
   // Verificamos o ambiente atual. 
   if(ENVIROMENT == 'development') {
-        define("BASE_URL", "http://localhost/MVC/");
-        $config['dbname'] = 'estrutura_mvc';
+        define("BASE_URL", "http://localhost/mvc_classificados_php/");
+        $config['dbname'] = 'classificados';
         $config['dbhost'] = 'localhost';
         $config['dbuser'] = 'root';
         $config['dbpass'] = '';
@@ -18,9 +18,9 @@
         $config['dbpass'] = '';
   }
 
-  global $pdo;
+  global $db;
   try {
-    $pdo = new PDO("mysql:dbname=" . $config['dbname'] . ";host=" . $config['dbhost'], $config['dbuser'], $config['dbpass']);
+    $db = new PDO("mysql:dbname=" . $config['dbname'] . ";host=" . $config['dbhost'], $config['dbuser'], $config['dbpass']);
   } catch (PDOException $e) {
     echo "Falha na conexão com banco de dados: ".$e->getMessage();
     exit;
